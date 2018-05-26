@@ -1,0 +1,30 @@
+{
+  "name": "Cookie Sweep",
+  "description": "Sweep cookies during browser startup",
+  "version": "fork",
+  "author": "joe04",
+  "homepage_url": "https://github.com/joey04/Cookie-Sweep",
+
+  "permissions": [
+      "storage",
+      "cookies",
+      "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["sweepCookies.js", "startupSweep.js"]
+  },
+  "icons": {
+    "48": "icon.svg"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
+  "applications": {
+    "gecko": {
+      "id": "cookiesweep@startup",
+      "strict_min_version": "52.0"
+    }
+  },
+  "manifest_version": 2
+}
