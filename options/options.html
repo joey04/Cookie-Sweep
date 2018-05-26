@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../sweepCookies.js"></script>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <form id="options">
+      <p>Run a sweep with this button</p>
+      <div class="run-now-container">
+        <div id="runNow" class="button">Sweep cookies now</div>
+      </div>
+      <div id="actionResult"></div>
+      <p></p>
+      <p></p>
+      <h3>Whitelisted Domains</h3>
+      <p>All cookies from these domains will be preserved during a sweep.</p>
+      <p>Separate them with a comma and space, like this:</p>
+      <p>sitea.com, siteb.org, sitec.net</p>
+      <p></p>
+      <div class="column">
+        <textarea required id="domains" rows="2" placeholder="." spellcheck="false"></textarea>
+      </div>
+      <p>The list is automatically saved.</p>
+    </form>
+
+    <script src="options.js"></script>
+  </body>
+</html>
