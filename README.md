@@ -6,17 +6,15 @@ The options page is where you make your whitelist. It also has a button to run a
 Note that there is no option to disable the startup sweep.
 
 ### Use case
-This is a fork of [the original](https://github.com/mpopp75/cookie-sweep), which had everything I wanted except the ability to automatically sweep at browser startup or shutdown. I rarely keep my browser running when I'm not using it, so it's very important to me to start with a clean slate of cookies for each session. In addition, there are several website domains I want to preserve cookies for logins and preferences.
+This is a fork of [the original](https://github.com/mpopp75/cookie-sweep), which had everything I wanted except the ability to automatically sweep at browser startup. I usually exit my browser when I'm done using it, so I want a clean slate of cookies for each session. In addition, there are several websites I want to preserve cookies for logins and preferences.
 
 Note that offline storage is a separate matter. For that, I set `privacy.clearOnShutdown.offlineApps` to true.
 
 ### Known issue
-If the file that stores the domain whitelist is corrupt or missing, Cookie Sweep will not function properly, including the options page not displaying a whitelist editor.
+I've thoroughly tested my Cookie Sweep fork, and there is only one problem. If the text file that stores the domain whitelist is missing or corrupt, the sweep function will crash. This problem occurred immediately after installing on two different profiles because the file was missing. But it's easy to remedy, and once corrected, hasn't reoccurred for me.
 
-To fix this problem, do the following:
-* Exit the browser (it must not be running)
-* Create a text file named `storage.js` with this content: `{"domains":"example.com"}`
-* Place the file in your profile directory at `browser-extension-data` / `cookiesweep@startup`
-* Start the browser and you should see `example.com` in the whitelist on the Cookie Sweep options page. That means it's running properly.
-
-I've thoroughly tested my Cookie Sweep fork, and there are no other problems. It really is set-and-forget.
+Do these steps:
+* After installing, go to the Cookie Sweep options page.
+* Click the Sweep Cookies now button. The problem occurred if it hangs with a `Processing...` message (whereas it should quickly finish sweeping then report the number of cookies kept and removed). There also will be a script error in the console.
+* To correct it, type in a domain, like `foo.com`, in the Whitelist editor and it'll automatically be saved.
+* Verify by reloading the options page and running another sweep.
